@@ -3,3 +3,33 @@
     padding : 0rem;
     box-sizing : border-box;
 }
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main-box {
+    margin-left : 8rem;
+}
+
+#title{
+    font-size : 3.5rem;
+    font-weight: bold;
+}
+
+#description {margin : 0.75rem 0rem;}
+
+.input-div input {
+    padding : 0.6rem 1rem;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-div { 
+    margin-top : 1.35rem;
+}
+
+#submit:hover{
+    cursor : pointer;
+}
