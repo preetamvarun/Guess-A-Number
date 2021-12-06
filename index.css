@@ -17,6 +17,10 @@ body{
     font-weight: bold;
 }
 
+#msg{
+    margin-top : 0.6rem;
+}
+
 #description {
     margin : 0.75rem 0rem;
 }
