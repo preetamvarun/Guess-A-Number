@@ -6,7 +6,6 @@ const inputFields = document.getElementsByClassName('input-div')[0];
 let randomNumber,noOfGuesses = -1;
 
 function changeUI(){
-
     /* changing the input field */
     const newBox = document.createElement('input');
     newBox.id = 'number';
@@ -20,38 +19,42 @@ function changeUI(){
     newBtn.className = 'playAgain';
     const oldBtn = inputFields.lastElementChild;
     inputFields.replaceChild(newBtn,oldBtn);
+
+    newBtn.addEventListener('click',function(e){
+        location.reload();
+        e.preventDefault();
+    });
 }
 
 function gameOver(){
     changeUI();
-    showMessage.textContent = `Game over! The correct number is ${randomNumber}`;
+    showMessage.textContent = `Game over! The correct number was ${randomNumber}`;
+    showMessage.style.color = 'red';
 }
 
 function wrongNumber(){
     noOfGuesses--;
     numberField.style.border = '2px solid red';
-    showMessage.textContent = `That was incorrect :( . You have ${noOfGuesses} more guesses left !`;
+    showMessage.textContent = `That was incorrect :( . You have ${noOfGuesses} more guesse(s) left !`;
+    showMessage.style.color = 'red';
 }
 
 function declareUserAsWin(){
     numberField.style.border = '2px solid green';
     showMessage.textContent = 'Your Guess was correct !';
+    showMessage.style.color = 'green';
     changeUI();
 }
 
 function playGame(){
     let num = parseInt(numberField.value);
-    if(noOfGuesses > 1){
-        console.log(`present number is ${num} and random number is ${randomNumber}`);
-        num === randomNumber ? declareUserAsWin() : wrongNumber();
-    } else{
-        // last guess condition
-        num === randomNumber ? declareUserAsWin() : gameOver();
-    }
+    isNaN(num) ? showMessage.textContent = 'please enter your guess':
+    noOfGuesses > 1 ? 
+    num === randomNumber ? declareUserAsWin() : wrongNumber() :
+    num === randomNumber ? declareUserAsWin() : gameOver();
 }
 
 function initVars(){
-    console.log(`initizlizing the variables`);
     noOfGuesses = 3;
     randomNumber = Math.floor(Math.random() * 10) + 1;
     playGame();
