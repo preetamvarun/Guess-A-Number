@@ -1,15 +1,30 @@
 const btn = document.getElementById('submit');
 const numberField = document.getElementById('number');
 const showMessage = document.getElementById('msg');
+const inputFields = document.getElementsByClassName('input-div')[0];
 
 let randomNumber,noOfGuesses = -1;
 
 function changeUI(){
 
+    /* changing the input field */
+    const newBox = document.createElement('input');
+    newBox.id = 'number';
+    newBox.readOnly = true;
+    const oldElement = inputFields.firstElementChild;
+    inputFields.replaceChild(newBox,oldElement);
+
+    /*changing the button field*/
+    const newBtn = document.createElement('a');
+    newBtn.innerHTML = 'Play Again';
+    newBtn.className = 'playAgain';
+    const oldBtn = inputFields.lastElementChild;
+    inputFields.replaceChild(newBtn,oldBtn);
 }
 
 function gameOver(){
-    console.log('game is over');
+    changeUI();
+    showMessage.textContent = `Game over! The correct number is ${randomNumber}`;
 }
 
 function wrongNumber(){
@@ -21,6 +36,7 @@ function wrongNumber(){
 function declareUserAsWin(){
     numberField.style.border = '2px solid green';
     showMessage.textContent = 'Your Guess was correct !';
+    changeUI();
 }
 
 function playGame(){

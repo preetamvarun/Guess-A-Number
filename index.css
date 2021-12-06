@@ -25,7 +25,7 @@ body{
     margin : 0.75rem 0rem;
 }
 
-.input-div input {
+.input-div input, .playAgain{
     padding : 0.6rem 1rem;
     border: none;
     border: 1px solid #ccc;
@@ -36,6 +36,6 @@ body{
     margin-top : 1.35rem;
 }
 
-#submit:hover{
+#submit:hover, .playAgain:hover{
     cursor : pointer;
 }
