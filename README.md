@@ -15,3 +15,14 @@ The purpose of this project is to understand and implement the javascript concep
 ## 3. Preview 🎥
 
 ## 4. Installation 📀
+#### Clone the repo
+
+```sh
+$ git clone https://github.com/preetamvarun/Guess-A-Number.git
+$ cd Guess-A-Number/
+```
+
+#### Run the app
+```sh
+open index.html with a browser you prefer
+```
